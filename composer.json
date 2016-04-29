@@ -1,0 +1,40 @@
+{
+    "name": "imomushi/segment-facebook-bot",
+    "description": "Facebook BOT API plugin for imomushi/worker",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Fumikazu Fujiwara",
+            "email": "github@ze.gs"
+        }
+    ],
+    "keywords": [
+        "imomushi"
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3",
+        "phake/phake": "^2.3",
+        "squizlabs/php_codesniffer": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imomushi\\Worker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Imomushi\\Worker\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
