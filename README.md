@@ -1,7 +1,7 @@
-imomushi/segment-line-bot
+imomushi/segment-facebook-bot
 ===========
 
-[![Build Status](https://travis-ci.org/imomushi/segment-line-bot.png)](https://travis-ci.org/imomushi/segment-line-bot)
+[![Build Status](https://travis-ci.org/imomushi/segment-facebook-bot.png)](https://travis-ci.org/imomushi/segment-facebook-bot)
 
 ## Installation ##
 
@@ -9,7 +9,7 @@ To install via [Composer](http://getcomposer.org/), use the command below, it wi
 
 ```
 composer require imomushi/worker:dev-master
-composer require imomushi/segment-line-bot:dev-master
+composer require imomushi/segment-facebook-bot:dev-master
 ./vendor/bin/imomushi-worker
 ```
 
