@@ -30,29 +30,19 @@ class FacebookSendMessage
 
     public function execute($arguments)
     {
-        $content = (array)$arguments->content;
-
-        $resContent = $content;
-        $resContent['text'] = $content['text'];
-
-        $url = 'https://trialbot-api.line.me/v1/events';
+        $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$arguments->access_token;
         $curl = curl_init($url);
         $options = array(
             // HEADER
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json; charset=UTF-8',
-                'X-Line-ChannelID: '.$arguments->line_channel_id,
-                'X-Line-ChannelSecret: '.$arguments->line_channel_secret,
-                'X-Line-Trusted-User-With-ACL: '.$arguments->line_channel_mid
             ),
             // Method
             CURLOPT_POST => true,
             // Body
             CURLOPT_POSTFIELDS => json_encode([
-                'to' => [$content['from']],
-                'toChannel' => 1383378250, # Fixed value
-                'eventType' => '138311608800106203', # Fixed value
-                'content' => $resContent,
+                'recipient' => ['id' => $arguments->sender],
+                'message' => ['text' => $arguments->text]
             ]),
         );
         curl_setopt_array($curl, $options);

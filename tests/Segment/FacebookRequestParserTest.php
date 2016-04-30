@@ -50,33 +50,5 @@ class FacebookRequestParserTest extends \PHPUnit_Framework_TestCase
                 'execute'
             )
         );
-        //non object
-        $result = $this -> target -> execute(null);
-        $this -> assertEquals(
-            ['content' => []],
-            $result
-        );
-
-        //object but doesn't have 'body' property
-        $result = $this -> target -> execute(new \stdClass());
-        $this -> assertEquals(
-            ['content' => []],
-            $result
-        );
-
-        //normal case
-        $arguments = new \stdClass();
-        $body = new \stdClass();
-        $body -> result = [
-            ['content' => ['test' => 'test']],
-        ];
-        $arguments -> body = json_encode($body);
-        $result = $this -> target -> execute($arguments);
-        $content = new \stdClass();
-        $content -> test = 'test';
-        $this -> assertEquals(
-            ['content' => $content],
-            $result
-        );
     }
 }
